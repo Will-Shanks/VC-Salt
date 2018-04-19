@@ -1,3 +1,7 @@
+#TODO: Only mount /home on login and compute nodes
+include:
+  - vc.firewalld
+  - vc.users
 nfs:
   pkg.installed:
     - pkgs:
