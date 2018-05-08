@@ -2,10 +2,7 @@
 include:
   - vc.firewalld
   - vc.users
-nfs:
-  pkg.installed:
-    - pkgs:
-      - nfs-utils
+  - vc.pkgs
 
 {% if grains['id'] == pillar['nfs_server'] %}
 rpcbind:  
@@ -23,8 +20,9 @@ nfs-idmap:
 /etc/exports:
   file.managed:
     - contents:
-      - /root  "*"(rw,sync,no_root_squash,no_all_squash)
-      - /home     "*"(rw,sync,no_root_squash,no_all_squash)
+      - /root       "*"(rw,sync,no_root_squash,no_all_squash)
+      - /home       "*"(rw,sync,no_root_squash,no_all_squash)
+      - /usr/local  "*"(rw,sync,no_root_squash,no_all_squash)
 exportfs -a:
   cmd.run
 nfs-server:
@@ -40,6 +38,11 @@ nfs-server:
 /root:
   mount.mounted:
     - device: vcnfs1:/root
+    - mkmnt: True
+    - fstype: nfs
+/usr/local:
+  mount.mounted:
+    - device: vcnfs:/usr/local
     - mkmnt: True
     - fstype: nfs
 {% endif %}
