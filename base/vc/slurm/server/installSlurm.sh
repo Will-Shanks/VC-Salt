@@ -1,3 +1,11 @@
+PMIX_DIR='/usr/local/pmix/2.1.1/'
+PMIX_SHA=`(find $PMIX_DIR-type f -print0  | sort -z | xargs -0 sha1sum;
+find $PMIX_DIR \( -type f -o -type d \) -print0 | \
+ sort -z | xargs -0 stat -c '%n %a') | sha1sum`
+
+
+
+
 if [ ! -d "/usr/local/pmix/2.1.1/" ];
 then
   wget https://github.com/pmix/pmix/archive/v2.1.1.tar.gz && tar -xzvf v2.1.1.tar.gz &
