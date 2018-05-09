@@ -13,4 +13,4 @@ base:
     - vc.slurm.compute
   'vclogin*':
     - vc.nfs.client
-    - vc.slurm.login
+    - vc.slurm.client
