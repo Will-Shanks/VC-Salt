@@ -9,8 +9,6 @@ base:
   '{{ pillar['slurm_server'] }}':
     - vc.slurm.server
   'vc[1-5]':
-    - vc.nfs.client
     - vc.slurm.compute
   'vclogin*':
-    - vc.nfs.client
     - vc.slurm.client

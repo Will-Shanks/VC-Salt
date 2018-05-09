@@ -1,7 +1,7 @@
-PMIX_DIR='/usr/local/pmix/2.1.1/'
-PMIX_SHA=`(find $PMIX_DIR-type f -print0  | sort -z | xargs -0 sha1sum;
-find $PMIX_DIR \( -type f -o -type d \) -print0 | \
- sort -z | xargs -0 stat -c '%n %a') | sha1sum`
+#PMIX_DIR='/usr/local/pmix/2.1.1/'
+#PMIX_SHA=`(find $PMIX_DIR-type f -print0  | sort -z | xargs -0 sha1sum;
+#find $PMIX_DIR \( -type f -o -type d \) -print0 | \
+# sort -z | xargs -0 stat -c '%n %a') | sha1sum`
 
 
 
@@ -30,7 +30,7 @@ then
   cd slurm-slurm-17-11-5-1 && make -j40 install
   rm -rf slurm-slurm-17-11-5-1 &
 
-  wait $OMPI_PID)
+  wait $OMPI_PID
   rm -f v3.1.0.tar.gz &
   cd ompi-3.1.0 && ./autogen.pl
   cd ompi-3.1.0 && ./configure --prefix=/usr/local/ompi/3.1.0/ --with-libevent=/usr --with-pmix=/usr/local/pmix/2.1.1/ --with-slurm
