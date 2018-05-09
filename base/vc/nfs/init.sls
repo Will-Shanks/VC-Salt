@@ -1,4 +1,3 @@
-#TODO: Only mount /home on login and compute nodes
 include:
   - vc.firewalld
   - vc.users
@@ -42,7 +41,7 @@ nfs-server:
     - fstype: nfs
 /usr/local:
   mount.mounted:
-    - device: vcnfs:/usr/local
+    - device: vcnfs1:/usr/local
     - mkmnt: True
     - fstype: nfs
 {% endif %}
