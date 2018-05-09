@@ -3,8 +3,7 @@ include:
   - vc.users
   - vc.pkgs
 
-{% if grains['id'] == pillar['nfs_server'] %}
-rpcbind:  
+rpcbind:
   service.running:
     - enable: True
     - reload: True
@@ -28,20 +27,3 @@ nfs-server:
   service.running:
     - enable: True
     - reload: True
-{% else %}
-/home:
-  mount.mounted:
-    - device: vcnfs1:/home
-    - mkmnt: True
-    - fstype: nfs
-/root:
-  mount.mounted:
-    - device: vcnfs1:/root
-    - mkmnt: True
-    - fstype: nfs
-/usr/local:
-  mount.mounted:
-    - device: vcnfs1:/usr/local
-    - mkmnt: True
-    - fstype: nfs
-{% endif %}
