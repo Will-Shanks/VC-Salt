@@ -1,6 +1,12 @@
 include:
   - vc.slurm.client
 
+pkgs:
+  pkg.installed:
+    - pkgs:
+      - mariadb
+      - mariadb-devel
+
 /var/lib/slurm:
   file.directory:
     - user: slurm

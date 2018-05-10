@@ -3,6 +3,11 @@ include:
   - vc.users
   - vc.pkgs
 
+pkgs:
+  pkg.installed:
+    - pkgs:
+      - nfs-utils
+
 rpcbind:
   service.running:
     - enable: True

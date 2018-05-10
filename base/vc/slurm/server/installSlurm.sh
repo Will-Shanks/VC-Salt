@@ -1,10 +1,11 @@
+#!/bin/bash
+
 PMIX_DIR='/usr/local/pmix/2.1.1/'
 SLURM_DIR='/usr/local/slurm/17.11.5.1/'
 OMPI_DIR='/usr/local/ompi/3.1.0/'
 #PMIX_SHA=`(find $PMIX_DIR-type f -print0  | sort -z | xargs -0 sha1sum;
 #find $PMIX_DIR \( -type f -o -type d \) -print0 | \
 # sort -z | xargs -0 stat -c '%n %a') | sha1sum`
-
 
 set -e
 
@@ -27,9 +28,9 @@ then
   cd $CURRDIR
   rm -rf pmix-2.1.1 #&
 
-  wait $SLURM_PID
+#  wait $SLURM_PID
   wget https://github.com/open-mpi/ompi/archive/v3.1.0.tar.gz && tar -xzvf v3.1.0.tar.gz #&
-  OMPI_PID=$!
+#  OMPI_PID=$!
   rm -f slurm-17-11-5-1.tar.gz #&
   cd slurm-slurm-17-11-5-1
   ./configure --prefix=$SLURM_DIR --with-pmix=$PMIX_DIR

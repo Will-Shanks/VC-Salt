@@ -1,12 +1,12 @@
 base:
   '*':
-    - vc.firewalld
+#    - vc.firewalld
     - vc.pkgs
-    - vc.sshd
+#    - vc.sshd
     - vc.users
-  '{{ pillar['nfs_server'] }}':
+  '{{ pillar["nfs_server"] }}':
     - vc.nfs.server
-  '{{ pillar['slurm_server'] }}':
+  '{{ pillar["slurm_server"] }}':
     - vc.slurm.server
   'vc[1-5]':
     - vc.slurm.compute

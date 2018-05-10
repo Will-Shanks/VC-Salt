@@ -1,6 +1,12 @@
 include:
   - vc.nfs.client
 
+pkgs:
+  pkg.installed:
+    - pkgs:
+      - munge
+      - munge-devel
+
 /etc/munge/munge.key:
   file:
     - managed
