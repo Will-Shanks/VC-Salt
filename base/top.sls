@@ -12,3 +12,5 @@ base:
     - vc.slurm.compute
   'vclogin*':
     - vc.slurm.client
+  'vcsalt':
+    - vc.nfs.client

@@ -1,11 +1,27 @@
 include:
   - vc.slurm.client
 
-pkgs:
-  pkg.installed:
-    - pkgs:
-      - mariadb
-      - mariadb-devel
+mariadb:
+  pkg.installed
+#      - mariadb-devel
+
+perl-Data-Dumper:
+  pkg.installed
+
+autoconf:
+  pkg.installed
+
+automake:
+  pkg.installed
+
+libtool:
+  pkg.installed
+
+libevent-devel:
+  pkg.installed
+
+flex:
+  pkg.installed
 
 /var/lib/slurm:
   file.directory:
@@ -15,8 +31,8 @@ pkgs:
 
 /var/log/slurm:
   file.directory:
-    - user: root
-    - group: root
+    - user: slurm
+    - group: slurm
     - mode: 755
 
 /root/installSlurm.sh:
@@ -31,7 +47,7 @@ bash /root/installSlurm.sh:
   cmd.run
 
 rm -f /root/installSlurm.sh:
-  cmd.runn
+  cmd.run
 
 /usr/local/slurm/17.11.5.1/etc:
   file.directory:

@@ -1,12 +1,10 @@
 include:
-  - vc.firewalld
+#  - vc.firewalld
   - vc.users
   - vc.pkgs
 
-pkgs:
-  pkg.installed:
-    - pkgs:
-      - nfs-utils
+nfs-utils:
+  pkg.installed
 
 /home:
   mount.mounted:

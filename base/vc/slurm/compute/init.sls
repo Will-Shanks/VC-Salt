@@ -9,8 +9,8 @@ include:
 
 /var/log/slurm:
   file.directory:
-    - user: root
-    - group: root
+    - user: slurm
+    - group: slurm
     - mode: 755
 
 /lib/systemd/system/slurmd.service:
