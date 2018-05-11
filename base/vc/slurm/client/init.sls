@@ -1,6 +1,9 @@
 include:
   - vc.nfs.client
 
+munge:
+  pkg.installed
+
 munge-devel:
   pkg.installed
 

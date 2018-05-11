@@ -3,7 +3,9 @@ include:
 
 mariadb:
   pkg.installed
-#      - mariadb-devel
+
+mariadb-devel:
+  pkg.installed
 
 perl-Data-Dumper:
   pkg.installed

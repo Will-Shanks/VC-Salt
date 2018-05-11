@@ -1,5 +1,4 @@
 include:
-#  - vc.firewalld
   - vc.users
   - vc.pkgs
 
