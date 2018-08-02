@@ -51,13 +51,13 @@ bash /root/installSlurm.sh:
 rm -f /root/installSlurm.sh:
   cmd.run
 
-/usr/local/slurm/17.11.5.1/etc:
+/opt/slurm/17.11.5.1/etc:
   file.directory:
     - user: slurm
     - group: slurm
     - mode: 755
 
-/usr/local/slurm/17.11.5.1/etc/slurm.conf:
+/opt/slurm/17.11.5.1/etc/slurm.conf:
   file:
     - managed
     - source: salt://vc/slurm/server/slurm.conf
@@ -66,7 +66,7 @@ rm -f /root/installSlurm.sh:
     - group: slurm
 
 
-/usr/local/slurm/17.11.5.1/etc/cgroup.conf:
+/opt/slurm/17.11.5.1/etc/cgroup.conf:
   file:
     - managed
     - source: salt://vc/slurm/server/cgroup.conf
@@ -82,21 +82,21 @@ rm -f /root/installSlurm.sh:
     - owner: root
     - group: root
 
-#/lib/systemd/system/slurmdbd.service:
-#  file:
-#    - managed
-#    - source: salt://vc/slurm/server/slurmdbd.service
-#    - mode: 644
-#    - owner: root
-#    - group: root
+/lib/systemd/system/slurmdbd.service:
+  file:
+    - managed
+    - source: salt://vc/slurm/server/slurmdbd.service
+    - mode: 644
+    - owner: root
+    - group: root
 
-#/usr/local/etc/slurm/slurmdbd.conf:
-#  file:
-#    - managed
-#    - source: salt://vc/slurm/slurmdbd.conf
-#    - mode: 644
-#    - owner: slurm
-#    - group: slurm
+/opt/slurm/17.11.5.1/etc/slurmdbd.conf:
+  file:
+    - managed
+    - source: salt://vc/slurm/slurmdbd.conf
+    - mode: 644
+    - owner: slurm
+    - group: slurm
 
 systemctl daemon-reload:
   cmd.run
@@ -106,7 +106,7 @@ slurmctld:
     - enable: True
     - reload: True
 
-#slurmdbd:
-#  service.running:
-#    - enable: True
-#    - reload: True
+slurmdbd:
+  service.running:
+    - enable: True
+    - reload: True

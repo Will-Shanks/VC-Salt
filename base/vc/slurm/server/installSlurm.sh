@@ -1,11 +1,8 @@
 #!/bin/bash
 
-PMIX_DIR='/usr/local/pmix/2.1.1/'
-SLURM_DIR='/usr/local/slurm/17.11.5.1/'
-OMPI_DIR='/usr/local/openmpi/3.1.0/'
-#PMIX_SHA=`(find $PMIX_DIR-type f -print0  | sort -z | xargs -0 sha1sum;
-#find $PMIX_DIR \( -type f -o -type d \) -print0 | \
-# sort -z | xargs -0 stat -c '%n %a') | sha1sum`
+PMIX_DIR='opt/pmix/2.1.1/'
+SLURM_DIR='opt/slurm/17.11.5.1/'
+OMPI_DIR='opt/openmpi/3.1.0/'
 
 set -e
 
