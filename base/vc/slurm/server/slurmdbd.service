@@ -1,12 +1,12 @@
 [Unit]
 Description=Slurm DBD accounting daemon
 After=network.target
-ConditionPathExists=/usr/local/etc/slurm/slurmdbd.conf
+ConditionPathExists=/usr/local/slurm/17.11.5.1/etc/slurmdbd.conf
 
 [Service]
 Type=forking
-EnvironmentFile=-etc/sysconfig/slurmdbd
-ExecStart=/usr/local/sbin/slurmdbd $SLURMDBD_OPTIONS
+EnvironmentFile=-/etc/sysconfig/slurmdbd
+ExecStart=/usr/local/slurm/17.11.5.1/sbin/slurmdbd $SLURMDBD_OPTIONS
 ExecReload=/bin/kill -HUP $MAINPID
 PIDFile=/var/run/slurmdbd.pid
 
