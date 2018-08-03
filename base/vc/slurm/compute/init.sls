@@ -13,7 +13,7 @@ include:
     - group: slurm
     - mode: 755
 
-/lib/systemd/system/slurmd.service:
+/usr/lib/systemd/system/slurmd.service:
   file:
     - managed
     - source: salt://vc/slurm/compute/slurmd.service

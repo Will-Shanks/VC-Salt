@@ -74,7 +74,7 @@ rm -f /root/installSlurm.sh:
     - owner: slurm
     - group: slurm
 
-/lib/systemd/system/slurmctld.service:
+/usr/lib/systemd/system/slurmctld.service:
   file:
     - managed
     - source: salt://vc/slurm/server/slurmctld.service
@@ -82,7 +82,7 @@ rm -f /root/installSlurm.sh:
     - owner: root
     - group: root
 
-/lib/systemd/system/slurmdbd.service:
+/usr/lib/systemd/system/slurmdbd.service:
   file:
     - managed
     - source: salt://vc/slurm/server/slurmdbd.service
