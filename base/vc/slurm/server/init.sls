@@ -13,29 +13,6 @@ include:
     - group: slurm
     - mode: 755
 
-/opt/slurm/17.11.5.1/etc:
-  file.directory:
-    - user: slurm
-    - group: slurm
-    - mode: 755
-
-/opt/slurm/17.11.5.1/etc/slurm.conf:
-  file:
-    - managed
-    - source: salt://vc/slurm/server/slurm.conf
-    - mode: 0644
-    - owner: slurm
-    - group: slurm
-
-
-/opt/slurm/17.11.5.1/etc/cgroup.conf:
-  file:
-    - managed
-    - source: salt://vc/slurm/server/cgroup.conf
-    - mode: 640
-    - owner: slurm
-    - group: slurm
-
 /usr/lib/systemd/system/slurmctld.service:
   file:
     - managed

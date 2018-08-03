@@ -6,7 +6,8 @@ OMPI_DIR='/opt/openmpi/3.1.0/'
 
 set -e
 
-CURRDIR=`pwd`
+CURRDIR='/tmp'
+cd $CURRDIR
 
 if [ ! -d $PMIX_DIR ];
 then
