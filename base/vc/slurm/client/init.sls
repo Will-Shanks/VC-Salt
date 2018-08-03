@@ -44,7 +44,31 @@ libevent-devel:
 flex:
   pkg.installed
 
-/root/installSlurm.sh:
+/tmp/slurm-17-11-5-1.tar.gz:
+  file:
+    - managed
+    - source: salt://vc/slurm/client/slurm-17-11-5-1.tar.gz
+    - mode: 400
+    - user: root
+    - group: root
+
+/tmp/v2.1.1.tar.gz:
+  file:
+    - managed
+    - source: salt://vc/slurm/client/v2.1.1.tar.gz
+    - mode: 400
+    - user: root
+    - group: root
+
+/tmp/v3.1.0.tar.gz:
+  file:
+    - managed
+    - source: salt://vc/slurm/client/v3.1.0.tar.gz
+    - mode: 400
+    - user: root
+    - group: root
+
+/tmp/installSlurm.sh:
   file:
     - managed
     - source: salt://vc/slurm/client/installSlurm.sh
@@ -52,10 +76,10 @@ flex:
     - user: root
     - group: root
 
-bash /root/installSlurm.sh:
+bash /tmp/installSlurm.sh:
   cmd.run
 
-rm -f /root/installSlurm.sh:
+rm -f /tmp/installSlurm.sh:
   cmd.run
 
 /opt/slurm/17.11.5.1/etc:

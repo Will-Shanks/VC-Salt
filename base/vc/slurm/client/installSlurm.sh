@@ -9,14 +9,14 @@ set -e
 CURRDIR='/tmp'
 cd $CURRDIR
 
-if [ ! -d $PMIX_DIR ];
+if [ ! -d $OMPI_DIR ];
 then
-  wget https://github.com/pmix/pmix/archive/v2.1.1.tar.gz && tar -xzvf v2.1.1.tar.gz &
+   tar -xzvf v2.1.1.tar.gz &
   PMIX_PID=$!
 
   wait $PMIX_PID
   rm -f v2.1.1.tar.gz &
-  wget https://github.com/SchedMD/slurm/archive/slurm-17-11-5-1.tar.gz && tar -xzvf slurm-17-11-5-1.tar.gz &
+  tar -xzvf slurm-17-11-5-1.tar.gz &
   SLURM_PID=$!
   cd pmix-2.1.1
   ./autogen.sh
@@ -28,7 +28,7 @@ then
 
   wait $SLURM_PID
   rm -f slurm-17-11-5-1.tar.gz &
-  wget https://github.com/open-mpi/ompi/archive/v3.1.0.tar.gz && tar -xzvf v3.1.0.tar.gz &
+  tar -xzvf v3.1.0.tar.gz &
   OMPI_PID=$!
   cd slurm-slurm-17-11-5-1
   ./configure --prefix=$SLURM_DIR --with-pmix=$PMIX_DIR

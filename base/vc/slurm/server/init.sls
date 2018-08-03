@@ -32,7 +32,7 @@ include:
 /opt/slurm/17.11.5.1/etc/slurmdbd.conf:
   file:
     - managed
-    - source: salt://vc/slurm/slurmdbd.conf
+    - source: salt://vc/slurm/server/slurmdbd.conf
     - mode: 644
     - owner: slurm
     - group: slurm
