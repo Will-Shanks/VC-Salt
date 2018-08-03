@@ -1,30 +1,6 @@
 include:
   - vc.slurm.client
 
-mariadb:
-  pkg.installed
-
-mariadb-devel:
-  pkg.installed
-
-perl-Data-Dumper:
-  pkg.installed
-
-autoconf:
-  pkg.installed
-
-automake:
-  pkg.installed
-
-libtool:
-  pkg.installed
-
-libevent-devel:
-  pkg.installed
-
-flex:
-  pkg.installed
-
 /var/lib/slurm:
   file.directory:
     - user: slurm

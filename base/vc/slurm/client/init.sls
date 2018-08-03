@@ -20,6 +20,30 @@ for i in '/run/munge' '/var/log/munge' '/var/lib/munge' '/etc/munge/munge.key' '
 /usr/sbin/munged:
   cmd.run
 
+perl-Data-Dumper:
+  pkg.installed
+
+autoconf:
+  pkg.installed
+
+automake:
+  pkg.installed
+
+libtool:
+  pkg.installed
+
+mariadb:
+  pkg.installed
+
+mariadb-devel:
+  pkg.installed
+
+libevent-devel:
+  pkg.installed
+
+flex:
+  pkg.installed
+
 /root/installSlurm.sh:
   file:
     - managed

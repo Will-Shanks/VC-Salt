@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PMIX_DIR='opt/pmix/2.1.1/'
-SLURM_DIR='opt/slurm/17.11.5.1/'
-OMPI_DIR='opt/openmpi/3.1.0/'
+PMIX_DIR='/opt/pmix/2.1.1/'
+SLURM_DIR='/opt/slurm/17.11.5.1/'
+OMPI_DIR='/opt/openmpi/3.1.0/'
 
 set -e
 
@@ -14,9 +14,9 @@ then
   PMIX_PID=$!
 
   wait $PMIX_PID
+  rm -f v2.1.1.tar.gz &
   wget https://github.com/SchedMD/slurm/archive/slurm-17-11-5-1.tar.gz && tar -xzvf slurm-17-11-5-1.tar.gz &
   SLURM_PID=$!
-  rm -f v2.1.1.tar.gz &
   cd pmix-2.1.1
   ./autogen.sh
   ./configure --prefix=$PMIX_DIR
@@ -26,9 +26,9 @@ then
   rm -rf pmix-2.1.1 &
 
   wait $SLURM_PID
+  rm -f slurm-17-11-5-1.tar.gz &
   wget https://github.com/open-mpi/ompi/archive/v3.1.0.tar.gz && tar -xzvf v3.1.0.tar.gz &
   OMPI_PID=$!
-  rm -f slurm-17-11-5-1.tar.gz &
   cd slurm-slurm-17-11-5-1
   ./configure --prefix=$SLURM_DIR --with-pmix=$PMIX_DIR
   make -j40 all
