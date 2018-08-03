@@ -37,20 +37,6 @@ flex:
     - group: slurm
     - mode: 755
 
-/root/installSlurm.sh:
-  file:
-    - managed
-    - source: salt://vc/slurm/server/installSlurm.sh
-    - mode: 500
-    - user: root
-    - group: root
-
-bash /root/installSlurm.sh:
-  cmd.run
-
-rm -f /root/installSlurm.sh:
-  cmd.run
-
 /opt/slurm/17.11.5.1/etc:
   file.directory:
     - user: slurm
